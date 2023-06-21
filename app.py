@@ -50,8 +50,8 @@ def cmdb_fb(a, b, c):
 # Command Builder: Advanced
 def cmdb_adv(a, b):
     tuning = b.split(" –")[0]
-    gr.Textbox.update(value=f"-preset {a} -tune {b}")
-    # return f"-preset {a} -tune {b}"
+    #gr.Textbox.update(value=f"-preset {a} -tune {b}")
+    return f"-preset {a} -tune {b}"
 
 with gr.Blocks(title="FFmo - FFmpeg Online", theme=gr.themes.Soft()) as main:
     with gr.Tabs():
@@ -94,8 +94,8 @@ with gr.Blocks(title="FFmo - FFmpeg Online", theme=gr.themes.Soft()) as main:
                 with gr.Column() as inp_main:
                     input_preset3 = gr.Dropdown(["ultrafast", "superfast", "veryfast", "faster", "fast", "medium", "slow", "slower", "veryslow"], value=["veryslow"], label="Preset (Required)", info="Semakin lama (slow), semakin bagus hasilnya.")
                     input_tune3 = gr.Radio(["film – use for high quality movie content; lowers deblocking", "animation – good for cartoons; uses higher deblocking and more reference frames", "grain – preserves the grain structure in old, grainy film material", "stillimage – good for slideshow-like content", "fastdecode – allows faster decoding by disabling certain filters", "zerolatency – good for fast encoding and low-latency streaming", "psnr – ignore this as it is only used for codec development", "ssim – ignore this as it is only used for codec development"], value=["film – use for high quality movie content; lowers deblocking"], label="Tune (Required)", info="Tuning Setting")
-                    input_textbox3 = gr.Textbox(label="FFMPEG Command")
                     input_video3 = gr.Video(label="Input Video")
+                    input_textbox3 = gr.Textbox(label="FFMPEG Command")
                     buildcmd3 = gr.Button("Build FFMPEG Command", variant="primary").click(fn=cmdb_adv, inputs=[input_preset3,input_tune3], outputs=[input_textbox3])
 
                 with gr.Column() as out_main:
