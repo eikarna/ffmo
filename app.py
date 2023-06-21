@@ -7,7 +7,8 @@ from tempfile import _TemporaryFileWrapper
 
 # Check Runtime to avoid Error
 globalopt = []
-if os.getenv("SYSTEM") == "spaces":
+limit = os.getenv("SYSTEM") == "spaces"
+if limit:
     globalopt = ["-y", "-hide_banner", "-threads 64", "-filter_threads 64", "-filter_complex_threads 64"]
 else:
     globalopt = ["-y", "-hide_banner", "-hwaccel cuda", "-threads 64", "-filter_threads 64", "-filter_complex_threads 64"]
@@ -46,7 +47,7 @@ def cmdb_fb(a, b, c):
     # print(tuning)
     return f"-filter:v \"tblend\" -r {a} -preset {b} -tune {tuning}"
 
-with gr.Blocks() as main:
+with gr.Blocks(title="FFmo - FFmpeg Online") as main:
     with gr.Tabs():
         with gr.TabItem("Main"):
             with gr.Row():
@@ -93,4 +94,7 @@ with gr.Blocks() as main:
 
 # Launch the combined interface
 if __name__ == "__main__":
-    main.queue(concurrency_count=5).launch()
+    if limit:
+        main.queue(concurrency_count=5).launch()
+    else:
+        main.queue(concurrency_count=5).launch(debug=True, share=True)
