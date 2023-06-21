@@ -49,11 +49,11 @@ def cmdb_fb(a, b, c):
 
 # Command Builder: Advanced
 def cmdb_adv(a, b):
-    tuning = c.split(" –")[0]
+    tuning = b.split(" –")[0]
     gr.Textbox.update(value=f"-preset {a} -tune {b}")
     # return f"-preset {a} -tune {b}"
 
-with gr.Blocks(title="FFmo - FFmpeg Online") as main:
+with gr.Blocks(title="FFmo - FFmpeg Online", theme=gr.themes.Soft()) as main:
     with gr.Tabs():
         with gr.TabItem("Smooth Interpolation"):
             with gr.Row():
