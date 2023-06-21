@@ -102,7 +102,7 @@ with gr.Blocks(title="FFmo - FFmpeg Online", theme=gr.themes.Soft()) as main:
                     output_textbox3 = gr.Textbox(label="Output Logs", interactive=False)
                     output_video3 = gr.Video(label="Output Video", interactive=False)
                 startconv3 = gr.Button("Start", variant="primary").click(fn=convert, inputs=[input_video3,input_textbox3], outputs=[output_textbox3, output_video3])
-                clear_button3 = gr.ClearButton([input_textbox3, input_video3, output_textbox3, output_video3])
+                clear_button3 = gr.ClearButton([input_tune3, input_preset3, input_textbox3, input_video3, output_textbox3, output_video3])
 
 # Launch the combined interface
 if __name__ == "__main__":
