@@ -1,3 +1,13 @@
+---
+license: apache-2.0
+title: FFmo
+sdk: gradio
+emoji: 💻
+colorFrom: green
+colorTo: gray
+pinned: true
+---
+
 # FFMO
 FFmpeg-Online Wrapper, Also Fps Booster xD
 
