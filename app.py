@@ -51,7 +51,7 @@ def cmdb_fb(a, b, c):
 def cmdb_adv(a, b):
     tuning = b.split(" –")[0]
     #gr.Textbox.update(value=f"-preset {a} -tune {b}")
-    return f"-preset {a} -tune {b}"
+    return f"-preset {a} -tune {tuning}"
 
 with gr.Blocks(title="FFmo - FFmpeg Online", theme=gr.themes.Soft()) as main:
     with gr.Tabs():
