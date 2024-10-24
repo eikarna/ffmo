@@ -107,6 +107,6 @@ with gr.Blocks(title="FFmo - FFmpeg Online", theme=gr.themes.Soft()) as main:
 # Launch the combined interface
 if __name__ == "__main__":
     if limit:
-        main.queue(concurrency_count=5).launch()
+        main.queue().launch()
     else:
-        main.queue(concurrency_count=5).launch(debug=True, share=True)
+        main.queue().launch(debug=True, share=True)
