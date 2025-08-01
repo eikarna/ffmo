@@ -10,18 +10,18 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Add remote 
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_USERNAME: Nixic
-          HF_SPACE: huggingface.co/spaces/Nixic/FFmo
+          HF_USERNAME: eikarna
+          HF_SPACE: huggingface.co/spaces/eikarna/ffmo
         run: git remote add space https://$HF_USERNAME:$HF_TOKEN@$HF_SPACE 
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_USERNAME: Nixic
-          HF_SPACE: huggingface.co/spaces/Nixic/FFmo
+          HF_USERNAME: eikarna
+          HF_SPACE: huggingface.co/spaces/eikarna/ffmo
         run: git push --force https://$HF_USERNAME:$HF_TOKEN@$HF_SPACE main
